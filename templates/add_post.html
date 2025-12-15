@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add New Post</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label for="topic" class="form-label">Select Topic</label>
+    <select name="topic" class="form-select" required>
+      <option value="" disabled selected>-- Select a topic --</option>
+      {% for topic in topics %}
+      <option value="{{ topic }}">{{ topic }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="content" class="form-label">Post Content</label>
+    <textarea name="content" class="form-control" rows="5" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
